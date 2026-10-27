@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EG Content — Empreendedores do Grajaú · Latte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   João Luz Design · Brand System Guide · 2026
+   ───────────────────────────────────────────── */
+:root{
+  --black:#000000;
+  --white:#FFFFFF;
+  --gray:#F5F5F5;
+  --mid-gray:#E0E0E0;
+  --text-secondary:#666666;
+  --font:'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.75;
+  color:var(--black);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:800px;margin:0 auto;padding:0 32px}
+
+h1{font-size:clamp(40px,7vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1.05}
+h2{font-size:clamp(26px,4.5vw,36px);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+h3{font-size:clamp(18px,3vw,24px);font-weight:500;letter-spacing:-.01em;line-height:1.25}
+p{font-size:16px;line-height:1.75}
+
+.label{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-secondary);margin-bottom:24px;
+}
+.label-row{display:flex;align-items:center;gap:16px}
+
+/* ── HERO ───────────────────────────────── */
+.hero{padding:120px 0 100px}
+.hero h1{margin-bottom:40px;max-width:16ch}
+.hero .lead{font-size:20px;line-height:1.65;max-width:60ch}
+.hero-meta{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:48px;margin-top:72px;padding-top:48px;border-top:1px solid var(--mid-gray);
+}
+.hero-meta dt{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:8px}
+.hero-meta dd{font-size:18px;font-weight:500;letter-spacing:-.01em;line-height:1.4}
+
+/* ── SEÇÕES ─────────────────────────────── */
+section{padding:100px 0;border-top:1px solid var(--mid-gray)}
+.section-intro{font-size:16px;line-height:1.75;max-width:62ch;margin-top:32px;color:var(--black)}
+
+/* ── CONCEPT BLOCK ──────────────────────── */
+.concept{
+  background:var(--gray);padding:56px;font-size:20px;line-height:1.65;
+  color:var(--black);white-space:pre-line;
+}
+.concept.sm{font-size:16px;line-height:1.75;padding:40px}
+
+/* ── DIFF / CARD GRID ───────────────────── */
+.cards{display:grid;gap:2px;margin-top:48px}
+.cards-2{grid-template-columns:1fr 1fr}
+.cards-4{grid-template-columns:1fr 1fr}
+.card{background:var(--gray);padding:48px 40px}
+.card .label{margin-bottom:16px}
+.card h3{margin-bottom:16px}
+.card p{font-size:14px;line-height:1.7;color:var(--text-secondary)}
+.card .ex{margin-top:24px;padding-top:20px;border-top:1px solid var(--mid-gray);font-size:14px;color:var(--black)}
+.card ul{list-style:none;margin-top:4px}
+.card li{font-size:14px;line-height:1.6;padding:8px 0;border-bottom:1px solid var(--mid-gray);color:var(--text-secondary)}
+.card li:last-child{border-bottom:none}
+
+/* ── CALENDÁRIO ─────────────────────────── */
+.weeks{display:grid;gap:2px;margin-top:48px}
+.week{display:grid;grid-template-columns:80px 1fr;background:var(--gray)}
+.week-label{
+  padding:24px 0 24px 0;font-size:11px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;line-height:1.5;
+}
+.week-label span{display:block;font-weight:400;letter-spacing:.06em;color:var(--text-secondary);margin-top:6px}
+.week-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.slot{
+  background:var(--white);padding:20px 16px;text-decoration:none;color:var(--black);
+  display:block;transition:background .2s ease;
+}
+.slot:hover{background:var(--black);color:var(--white)}
+.slot:hover .slot-meta,.slot:hover .slot-cta{color:var(--mid-gray)}
+.slot-meta{
+  display:flex;justify-content:space-between;font-size:11px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary);
+}
+.slot-meta b{font-weight:600;color:inherit}
+.slot-title{display:block;font-size:15px;font-weight:500;letter-spacing:-.01em;line-height:1.3;margin:12px 0 10px}
+.slot-cta{display:block;font-size:11px;letter-spacing:.06em;color:var(--text-secondary)}
+.slot-off{background:var(--gray)}
+
+/* ── FILTROS ────────────────────────────── */
+.filters{display:flex;flex-wrap:wrap;gap:2px;margin-top:48px;margin-bottom:48px}
+.fbtn{
+  font-family:var(--font);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--gray);border:none;color:var(--text-secondary);padding:14px 20px;cursor:pointer;
+  transition:background .2s ease,color .2s ease;
+}
+.fbtn:hover{background:var(--mid-gray);color:var(--black)}
+.fbtn.on{background:var(--black);color:var(--white)}
+
+/* ── POSTS ──────────────────────────────── */
+.post{background:var(--gray);padding:56px 48px;margin-bottom:2px}
+.post.hide{display:none}
+.post-head{display:flex;align-items:baseline;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.post-n{font-size:36px;font-weight:600;letter-spacing:-.02em;line-height:1}
+.post-tags{display:flex;flex-wrap:wrap;gap:2px}
+.tag{
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--white);color:var(--text-secondary);padding:6px 12px;
+}
+.tag-solid{background:var(--black);color:var(--white)}
+.post h3{margin-bottom:16px}
+.post-tese{font-size:16px;line-height:1.75;color:var(--text-secondary);margin-bottom:48px;max-width:60ch}
+.post .label{margin-top:0;margin-bottom:20px}
+.post .concept{margin-bottom:48px}
+
+/* ── SLIDES ─────────────────────────────── */
+.slides{display:flex;gap:2px;overflow-x:auto;margin-bottom:48px;scroll-snap-type:x mandatory;padding-bottom:16px}
+.slides::-webkit-scrollbar{height:2px}
+.slides::-webkit-scrollbar-track{background:var(--mid-gray)}
+.slides::-webkit-scrollbar-thumb{background:var(--black)}
+.slide{
+  flex:0 0 200px;aspect-ratio:4/5;background:var(--white);padding:24px 20px;
+  display:flex;flex-direction:column;scroll-snap-align:start;
+}
+.slide-n{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:20px}
+.slide-t{font-size:14px;line-height:1.55}
+.slide-cover{background:var(--black);color:var(--white)}
+.slide-cover .slide-n{color:var(--mid-gray)}
+.slide-cover .slide-t{font-size:17px;font-weight:500;letter-spacing:-.01em;line-height:1.35}
+.slide-licao{background:var(--mid-gray)}
+.slide-cta{background:var(--black);color:var(--white)}
+.slide-cta .slide-n{color:var(--mid-gray)}
+.slide-cta .slide-t{font-size:15px;font-weight:500;line-height:1.45}
+
+.copy{
+  font-family:var(--font);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--white);border:none;color:var(--text-secondary);padding:6px 12px;cursor:pointer;
+  transition:background .2s ease,color .2s ease;
+}
+.copy:hover{background:var(--black);color:var(--white)}
+.source{border-top:1px solid var(--mid-gray);padding-top:32px;font-size:14px;line-height:1.7;color:var(--text-secondary)}
+.source .label{margin-bottom:12px}
+
+/* ── CTA SECTION (única seção preta) ────── */
+.cta-section{background:var(--black);color:var(--white);padding:120px 0;border-top:none}
+.cta-section h2{margin-bottom:32px}
+.cta-section .label{color:var(--mid-gray)}
+.cta-section p{color:var(--mid-gray);max-width:60ch}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px}
+.cta-item{background:var(--black);border:1px solid #222;padding:40px 32px}
+.cta-item .n{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mid-gray);margin-bottom:20px;display:block}
+.cta-item h3{color:var(--white);margin-bottom:16px}
+.cta-item p{font-size:14px;line-height:1.7;color:var(--text-secondary)}
+.cta-item .when{margin-top:24px;padding-top:20px;border-top:1px solid #222;font-size:14px;color:var(--white)}
+
+footer{padding:100px 0;font-size:14px;line-height:2;color:var(--text-secondary);border-top:1px solid var(--mid-gray)}
+footer b{color:var(--black);font-weight:600}
+
+/* ── MOTION ─────────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVO ─────────────────────────── */
+@media(max-width:768px){
+  section,.cta-section{padding:72px 0}
+  .hero{padding:80px 0 72px}
+  .cards-2,.cards-4,.cta-grid{grid-template-columns:1fr}
+  .week{grid-template-columns:1fr}
+  .week-label{padding:20px 0 16px}
+  .week-slots{grid-template-columns:1fr}
+  .post{padding:40px 28px}
+  .concept{padding:36px}
+  .hero-meta{gap:32px}
+}
+@media(max-width:480px){
+  .container{padding:0 20px}
+  .hero h1{font-size:36px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="container">
+  <span class="label">Latte · Consultoria em Marketing · Empreendedores do Grajaú</span>
+  <h1>Vinte casos. Uma lição comercial cada um.</h1>
+  <p class="lead">Copy completa das 20 publicações em carrossel, escritas na estrutura editorial da @brandsdecoded__: tese na capa, mecanismo no meio, lição aplicável no fim. A ordem das peças está fechada e é intencional. As datas de publicação serão definidas depois.</p>
+  <dl class="hero-meta">
+    <div><dt>Publicações</dt><dd>20 carrosséis</dd></div>
+    <div><dt>Sequência</dt><dd>Ordem editorial fechada</dd></div>
+    <div><dt>Datas</dt><dd>A definir</dd></div>
+    <div><dt>Formato</dt><dd>1080×1350 · 9 lâminas</dd></div>
+  </dl>
+</div></header>
+
+<section><div class="container">
+  <span class="label reveal">01 — Referência</span>
+  <h2 class="reveal">O método, decodificado</h2>
+  <p class="section-intro reveal">Li as 43 publicações coletadas do perfil. O padrão não é de tom, é de estrutura. A conta cresceu de zero a 277 mil em 14 meses com um formato só: pegar algo que já está acontecendo no mundo e traduzir para o universo de um público específico. Abaixo, a fórmula extraída e aplicada nas 20 peças.</p>
+
+  <div class="cards cards-4">
+    <div class="card reveal"><span class="label">Lâmina 1</span><h3>Tese, não pergunta</h3><p>A capa afirma. Nunca pergunta, nunca promete lista, nunca usa reticências de suspense. A frase já entrega o argumento inteiro — quem para, para porque discorda ou porque quer ver como se sustenta.</p><p class="ex">"Ser anti-mainstream virou mainstream."</p></div>
+    <div class="card reveal"><span class="label">Lâminas 2 a 7</span><h3>Caso com virada</h3><p>Fato, fato, fato — e então a inversão. O leitor precisa achar que sabe onde a história termina e descobrir que não sabia. Número concreto ancora; adjetivo não ancora nada.</p><p class="ex">Estrutura recorrente: "deixa de ser X e passa a ser Y".</p></div>
+    <div class="card reveal"><span class="label">Lâmina 8</span><h3>O diferencial está em…</h3><p>O caso vira mecanismo transferível. Não é moral da história, é engenharia: o que exatamente foi feito, e por que funciona também numa pizzaria de 40 lugares no Grajaú.</p><p class="ex">É esta lâmina que gera salvamento.</p></div>
+    <div class="card reveal"><span class="label">Lâmina 9</span><h3>Um destino por peça</h3><p>Dois CTAs alternados, nunca os dois no mesmo post. Pedir duas coisas na mesma lâmina é o jeito mais rápido de não conseguir nenhuma das duas.</p><p class="ex">Distribuição detalhada na seção seguinte.</p></div>
+  </div>
+
+  <div class="cards cards-2">
+    <div class="card reveal"><span class="label">Léxico que a marca usa</span><ul>
+      <li>sistema, formato, mecanismo, lógica, ativo</li>
+      <li>"deixa de ser X e passa a ser Y"</li>
+      <li>"o diferencial está em…"</li>
+      <li>"a leitura mais honesta não é sobre…"</li>
+      <li>números redondos e verificáveis</li>
+      <li>frases curtas, ponto final, sem ênfase gráfica</li>
+    </ul></div>
+    <div class="card reveal"><span class="label">Léxico que a marca não usa</span><ul>
+      <li>emoji em texto corrido, caixa alta gritada</li>
+      <li>"você não vai acreditar", "arrasta pro lado"</li>
+      <li>"segredo", "hack", "ninguém te conta"</li>
+      <li>exclamação, pergunta retórica na capa</li>
+      <li>jargão sem caso concreto por trás</li>
+      <li>autoelogio da comunidade dentro do conteúdo</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section class="cta-section"><div class="container">
+  <span class="label reveal">02 — Conversão</span>
+  <h2 class="reveal">Os dois destinos</h2>
+  <p class="reveal">Com o encontro de setembro cancelado, saiu o CTA de ingresso. Sobraram dois objetivos, alternados peça a peça: captar para o grupo e crescer a base. Nunca os dois no mesmo post — pedir duas coisas na mesma lâmina é o jeito mais rápido de não conseguir nenhuma.</p>
+  <div class="cta-grid">
+    <div class="cta-item reveal"><span class="n">Peças ímpares</span><h3>Grupo</h3><p>Comentário com palavra-chave para receber o link do grupo. A palavra muda a cada peça e conversa com o caso — comentário puxa alcance, e a palavra sinaliza o assunto para quem só leu a capa.</p><p class="when">10 publicações · PEDIDO, MARGEM, TEMA, PIONEIRO, DOMINGO, TAXA, PROMESSA, RITMO, BURACO, HORA</p></div>
+    <div class="cta-item reveal"><span class="n">Peças pares</span><h3>Seguir</h3><p>Convite direto para seguir o perfil. Menor atrito, e o único destino que constrói base para as próximas campanhas sem depender de alguém respondendo comentário em tempo real.</p><p class="when">10 publicações · alternadas com o grupo</p></div>
+  </div>
+</div></section>
+
+
+
+<section><div class="container">
+  <span class="label reveal">03 — Copy</span>
+  <h2 class="reveal">As 20 publicações</h2>
+  <p class="section-intro reveal">As vinte peças estão na ordem em que devem ser publicadas. A numeração é a sequência, não a data: lentes alternadas para não repetir o mesmo tipo de caso em seguida, e dois pares que se referenciam — Outback e In-N-Out defendem teses opostas, White Castle e Bob's são a versão gringa e a nacional do mesmo argumento. Cada peça traz as nove lâminas, a legenda pronta para colar e a fonte. Dezenove das vinte estão conferidas em fonte primária ou veículo de imprensa; a vigésima é opinativa e não tem alegação factual a checar. Cinco peças mudaram de tese durante a checagem — o que a pesquisa devolveu era melhor que o rascunho.</p>
+  <div class="filters" id="filters"></div>
+  <div id="posts">
+      <article class="post reveal" id="p1" data-lens="Fundador" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">01</span>
+          <div class="post-tags">
+            <span class="tag">Fundador</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · PEDIDO</span>
+          </div>
+        </div>
+        <h3>Cacau Show — Aos 17 anos, o fornecedor disse não. Foi o não que virou o negócio.</h3>
+        <p class="post-tese">O pedido que o fornecedor não conseguiu atender era o mapa do mercado.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Aos 17 anos, o fornecedor dele disse que não conseguia fazer. Foi aí que ele descobriu qual era o negócio.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Páscoa de 1988. Alexandre Costa revendia chocolate e fechou uma encomenda de 2 mil ovos de 50 gramas.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Levou o pedido para a fábrica. A fábrica não produzia esse tamanho. O produto que ele tinha acabado de vender não existia.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Pegou dinheiro emprestado com um tio, contratou uma senhora que fazia chocolate caseiro e produziu à mão. Três dias, jornadas de 18 horas.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Entregou tudo num Fusca 78. O lucro, cerca de US$ 500, virou o capital inicial da Cacau Show, fundada em 6 de abril de 1988.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">A leitura que ele fez não foi "consegui entregar". Foi: existe demanda para um produto que a indústria não fabrica.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Hoje são 4.781 lojas no Brasil e R$ 9 bilhões de faturamento em 2025. A Páscoa concentra cerca de 23% das vendas do ano.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Todo pedido que seu cliente faz e você não consegue atender é uma pesquisa de mercado que chegou de graça no balcão. A maior parte dos donos anota como problema. Alguns anotam como cardápio.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · PEDIDO</span>
+              <span class="slide-t">Comenta "PEDIDO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="1">Copiar</button></span>
+        <div class="concept" id="cap1">A Cacau Show nasceu de um pedido que não podia ser atendido. Em 1988, aos 17 anos, Alexandre Costa vendeu 2 mil ovos de Páscoa de 50 gramas antes de descobrir que nenhuma fábrica produzia aquele tamanho.
+
+O diferencial não está em ter feito os ovos à mão em três dias. Está na leitura que veio depois: se ninguém fabrica o que o cliente está pedindo, isso não é um problema de fornecedor — é uma categoria vazia. O lucro daquela entrega, cerca de US$ 500, virou o capital inicial de uma rede que fechou 2025 com 4.781 lojas e R$ 9 bilhões.
+
+Comenta "PEDIDO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>g4business (biografia Alê Costa), Istoé Dinheiro (abr/2026), FM2S. Fundação 06/04/1988; R$ 9 bi e 4.781 lojas referem-se a 2025.</div>
+      </article>
+      <article class="post reveal" id="p2" data-lens="Opinativo" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">02</span>
+          <div class="post-tags">
+            <span class="tag">Opinativo</span>
+            <span class="tag">Peça opinativa</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Gourmetização — Preço alto não é posicionamento. É só preço alto.</h3>
+        <p class="post-tese">Adjetivo no cardápio não sustenta margem. Cálculo sustenta.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Colocar "artesanal" no nome não muda o custo da sua ficha técnica. Muda só a expectativa de quem vai pagar.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">A gourmetização vendeu para uma geração inteira de donos a ideia de que reposicionar é uma decisão de linguagem.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Trocou-se pão de hambúrguer por brioche, cobrou-se 40% a mais e não se recalculou nada.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">O cliente pagou uma vez. Voltou uma vez. Achou que não valia e não voltou mais.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Porque preço alto cria uma promessa de experiência — e experiência é operação, tempo de espera, atendimento, constância.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Quem só subiu o preço não subiu a entrega. Ficou caro e igual.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Negócio lucrativo se faz com CMV conhecido, margem por item e estudo de quem compra. Não com um adjetivo a mais no cardápio.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Se você aumentou o preço e não aumentou nada mais, você não se reposicionou. Você só ficou caro. A pergunta certa não é "quanto posso cobrar", é "o que eu preciso entregar para valer o que estou cobrando".</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="2">Copiar</button></span>
+        <div class="concept" id="cap2">A gourmetização ensinou uma geração de donos a tratar reposicionamento como decisão de linguagem. Trocar o nome do prato, trocar o pão, subir 40% no preço e esperar que o cliente entenda o valor sozinho.
+
+O diferencial de quem cobra caro e sustenta não está no cardápio, está na operação: constância, tempo de espera, atendimento e ficha técnica fechada. Preço alto é uma promessa de experiência. Quem sobe o preço sem subir a entrega não muda de patamar — só fica caro e igual.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Peça opinativa. Nenhuma alegação factual sobre empresa específica — não requer checagem, requer aprovação de tom com o Leo.</div>
+      </article>
+      <article class="post reveal" id="p3" data-lens="Mercado" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">03</span>
+          <div class="post-tags">
+            <span class="tag">Mercado</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · MARGEM</span>
+          </div>
+        </div>
+        <h3>iFood — Quem ficou com a margem do delivery.</h3>
+        <p class="post-tese">Você não perdeu só a comissão. Perdeu o cadastro do cliente.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">A conta do delivery não fecha na comissão. Fecha na pergunta que quase ninguém faz: de quem é o cliente.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">O iFood concentra cerca de 80% dos pedidos de delivery no Brasil, com presença em 1.500 cidades e 55 milhões de usuários.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">As comissões variam de aproximadamente 12% no plano com entrega própria até cerca de 27% nos planos com entrega pela plataforma.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Mas o custo maior não aparece no extrato. Aparece quando você quer avisar seus clientes de uma promoção e descobre que não tem o telefone de nenhum deles.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">O pedido é seu. A comida é sua. O cliente é da plataforma.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Enquanto a plataforma traz volume, ela também terceiriza a única coisa que ninguém pode terceirizar: a relação.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Por isso quem cresce com app cresce em dois canais ao mesmo tempo — vende no aplicativo e captura contato no próprio pedido.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Coloque algo dentro da sacola que dê um motivo para o cliente falar direto com você: um cartão com nome e WhatsApp, um brinde que só é resgatado na loja. Comissão você negocia depois. Base de clientes você só constrói agora.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · MARGEM</span>
+              <span class="slide-t">Comenta "MARGEM" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="3">Copiar</button></span>
+        <div class="concept" id="cap3">A discussão sobre delivery quase sempre para na comissão. É o número mais visível e o menos determinante.
+
+O iFood concentra cerca de 80% dos pedidos no Brasil, está em 1.500 cidades e reúne 55 milhões de usuários — e as comissões vão de aproximadamente 12% com entrega própria a cerca de 27% nos planos com entrega da plataforma. O custo que não aparece no extrato é outro: o cadastro do cliente fica com quem intermedeia. Você entrega a comida e não fica com a relação.
+
+Comenta "MARGEM" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Blog KCMS (jul/2026) para faixas de comissão; Exame (2025) para 1.500 cidades / 55 mi de usuários. Faixas mudam por região e contrato — revalidar na véspera.</div>
+      </article>
+      <article class="post reveal" id="p4" data-lens="Origem" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">04</span>
+          <div class="post-tags">
+            <span class="tag">Origem</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Pastel de feira — A distribuição veio antes do produto.</h3>
+        <p class="post-tese">Ele não venceu pela receita. Venceu porque quem vendia já estava na feira toda semana.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">O salgado mais brasileiro da feira foi popularizado por gente que estava se escondendo.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Por volta de 1890, imigrantes chineses já vendiam rolinhos primavera no Brasil. A massa foi ficando mais fina, maior e mais crocante, e o recheio virou carne moída, queijo, palmito.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">A virada veio na Segunda Guerra. O Japão era inimigo do Brasil; a China era aliada. Entre 1941 e 1945, o idioma japonês foi proibido da vida pública e algumas famílias precisavam de salvo-conduto para circular.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Muitos pasteleiros japoneses passaram a se apresentar como chineses. Abrir pastelaria — negócio visto como chinês — virou proteção.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">E funcionou comercialmente por um motivo que não tem nada a ver com disfarce: muitas dessas famílias já eram feirantes, com agricultura nos arredores de São Paulo.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Ou seja, elas já tinham o ponto, o cliente e o dia fixo. Só faltava o produto certo para aquele fluxo.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Depois da guerra, as barracas de pastel foram parar ao lado das moendas de cana nas feiras paulistas. O par mais famoso da comida de rua brasileira nasceu de vizinhança de barraca.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">O pastel não ganhou o Brasil por ser melhor. Ganhou porque quem vendia já estava na frente do cliente toda semana. Antes de criar produto novo, olhe o que você já consegue distribuir — canal montado vale mais que receita boa.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="4">Copiar</button></span>
+        <div class="concept" id="cap4">O pastel de feira foi popularizado por gente que estava se escondendo. Durante a Segunda Guerra, com o Japão como inimigo do Brasil e a China como aliada, muitos pasteleiros japoneses passaram a se apresentar como chineses — e a pastelaria, vista como negócio chinês, virou proteção.
+
+O diferencial comercial, porém, não tem nada a ver com o disfarce. Muitas dessas famílias já eram feirantes, com agricultura nos arredores de São Paulo. Já tinham o ponto, o cliente e o dia fixo da semana. Faltava só o produto certo para aquele fluxo.
+
+O pastel não ganhou o Brasil por ser melhor. Ganhou porque quem vendia já estava na frente do cliente. Antes de criar produto novo, olhe o que você já consegue distribuir.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Wikipédia (Pastel/culinária), Jornal Correio (jun/2026), coisasdojapao, Blog Romanha. Origem tem versões concorrentes (chinesa x japonesa); o texto mantém as duas camadas em vez de escolher uma.</div>
+      </article>
+      <article class="post reveal" id="p5" data-lens="Operação" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">05</span>
+          <div class="post-tags">
+            <span class="tag">Operação</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · TEMA</span>
+          </div>
+        </div>
+        <h3>Outback — Eles se recusaram a ir à Austrália de propósito.</h3>
+        <p class="post-tese">Sabiam exatamente qual parte do conceito era decoração e qual parte era o produto.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Quatro americanos abriram um restaurante australiano e decidiram, de caso pensado, nunca visitar a Austrália.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Tampa, Flórida, 1987. Chris Sullivan, Bob Basham, Trudy Cooper e Tim Gannon queriam abrir uma casa de carnes e precisavam de um tema que os separasse do Chili's e do Bennigan's.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">"Crocodilo Dundee" tinha estourado em 1986. O nome saiu escrito com batom vermelho no espelho de um clube de jazz. A primeira loja abriu em 15 de março de 1988.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">A recusa em viajar era estratégia. Sullivan explicou à Fortune: se tivesse ido, teria voltado com comida australiana de verdade — que americano, em geral, não gosta.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">A frase que resume o negócio é dele: vendemos comida americana e diversão australiana.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Por isso a parede tem bumerangue e o cardápio tem costela. O tema é embalagem; a carne é o produto. Eles nunca confundiram os dois.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">A noite de estreia foi vazia. Os funcionários estacionaram os carros no pátio para a casa parecer cheia e ligaram para amigos e parentes pedindo que aparecessem.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Separe no seu negócio o que é decoração e o que é o produto. Decoração pode ser inventada, exagerada, temática. O produto não. Quando o cliente sente que a parede promete mais que o prato, ele não volta.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · TEMA</span>
+              <span class="slide-t">Comenta "TEMA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="5">Copiar</button></span>
+        <div class="concept" id="cap5">Quatro americanos abriram um restaurante australiano em Tampa, em 1988, e decidiram de caso pensado nunca visitar a Austrália.
+
+A recusa era estratégia. Chris Sullivan explicou à Fortune que, se tivesse ido, teria voltado com comida australiana de verdade — que americano, em geral, não gosta. A frase que resume o negócio é dele: vendemos comida americana e diversão australiana. Por isso a parede tem bumerangue e o cardápio tem costela.
+
+O diferencial está em não confundir as duas coisas. Decoração pode ser inventada e exagerada; o produto não. Quando o cliente sente que a parede promete mais que o prato, ele não volta.
+
+Comenta "TEMA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Wikipedia, FundingUniverse/Company Histories, Food Republic, Mashed, Entrepreneurship.org (depoimento de Chris Sullivan). Fundação 15/03/1988, Tampa.</div>
+      </article>
+      <article class="post reveal" id="p6" data-lens="Operação" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">06</span>
+          <div class="post-tags">
+            <span class="tag">Operação</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>In-N-Out — A regra não é crescer devagar. É não ter freezer.</h3>
+        <p class="post-tese">O ritmo de expansão é consequência de uma decisão de cozinha, não de filosofia.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Em 1976, o McDonald's tinha 4.000 lojas. O In-N-Out tinha 18. Isso não foi falta de ambição.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">1948, Baldwin Park, Califórnia. Harry e Esther Snyder abrem uma barraca de hambúrguer de cerca de 9 metros quadrados. Sem salão.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Harry montou na própria garagem um sistema de alto-falante de mão dupla para pedir sem sair do carro — o primeiro drive-thru da Califórnia.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">E estabeleceu uma regra que explica tudo: nada de freezer, nada de micro-ondas, nada de lâmpada de aquecimento. Carne fresca, batata cortada na hora.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">A consequência é geográfica. Loja nova só pode abrir a menos de um dia de viagem da central de carnes, para o hambúrguer nunca viajar congelado.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Não é que eles escolheram crescer devagar. Eles escolheram não congelar — e a velocidade máxima de expansão virou aquilo que a logística do fresco permite.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">A rede passou das 400 lojas só em dezembro de 2023. Nunca franqueou, nunca abriu capital, e segue 100% da família.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Escolha primeiro a sua regra inegociável — o que você nunca vai fazer para vender mais. O tamanho que o negócio pode ter é o que essa regra permitir. Quem define o tamanho primeiro acaba quebrando a regra depois.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="6">Copiar</button></span>
+        <div class="concept" id="cap6">Em 1976, o McDonald's tinha 4.000 lojas. O In-N-Out tinha 18. Não foi falta de ambição.
+
+Harry Snyder abriu em 1948, em Baldwin Park, e estabeleceu uma regra: nada de freezer, nada de micro-ondas, nada de lâmpada de aquecimento. A consequência é geográfica — loja nova só abre a menos de um dia de viagem da central de carnes, para o hambúrguer nunca viajar congelado.
+
+O diferencial não é "crescer devagar". É que a regra de cozinha define o raio, e o raio define a velocidade. A rede passou das 400 lojas só em dezembro de 2023, sem nunca franquear. Escolha primeiro o que você não vai fazer para vender mais — o tamanho possível é o que essa escolha permitir.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Site oficial In-N-Out (history), Encyclopedia.com, PBS SoCal, Los Angeles Times via compilação de Antoine Buteau, Chowhound (nov/2025). 424 lojas em 2025.</div>
+      </article>
+      <article class="post reveal" id="p7" data-lens="Pioneirismo" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">07</span>
+          <div class="post-tags">
+            <span class="tag">Pioneirismo</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · PIONEIRO</span>
+          </div>
+        </div>
+        <h3>White Castle — Chegar primeiro não garante nada.</h3>
+        <p class="post-tese">Inventou a categoria inteira e não lidera nenhum mercado.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">A rede que inventou o fast food de hambúrguer no mundo não é líder de nada hoje.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">1921, Wichita, Kansas. Walter Anderson, cozinheiro de chapa, e Billy Ingram, corretor de imóveis, abrem a White Castle com US$ 700 emprestados.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Anderson tinha resolvido um problema físico: amassou a bola de carne contra a chapa quente sobre uma cama de cebola e derrubou o tempo de preparo para minutos.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Ingram resolveu um problema de confiança. Na época, carne moída era vista com desconfiança — então a carne chegava duas vezes por dia e era moída na frente do cliente.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Deu certo. Virou categoria. E a categoria foi ocupada por quem chegou depois.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">A White Castle nunca franqueou, permaneceu empresa familiar e opera hoje algumas centenas de lojas, enquanto redes fundadas décadas depois têm milhares.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Ela não perdeu por fazer errado. Perdeu por não ter decidido crescer enquanto o mercado que ela criou estava aberto.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Ter sido o primeiro do bairro não é uma posição, é uma data. Se a sua vantagem é a antiguidade, ela vence sozinha todo ano — e alguém mais novo vai ocupar o espaço que você não ocupou.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · PIONEIRO</span>
+              <span class="slide-t">Comenta "PIONEIRO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="7">Copiar</button></span>
+        <div class="concept" id="cap7">A White Castle abriu em 1921, em Wichita, Kansas, e criou a primeira rede de hambúrgueres do mundo. Walter Anderson, cozinheiro de chapa, e Billy Ingram, corretor de imóveis, começaram com US$ 700 emprestados.
+
+O diferencial deles foi duplo e muito concreto: Anderson achatou a bola de carne na chapa sobre uma cama de cebola e cortou o preparo para minutos; Ingram atacou a desconfiança do público com carne entregue duas vezes por dia e moída à vista do cliente. Funcionou a ponto de criar uma categoria inteira.
+
+A categoria foi ocupada por quem chegou depois. A rede nunca franqueou e opera hoje algumas centenas de lojas, contra milhares dos concorrentes. Pioneirismo é uma data, não uma posição.
+
+Comenta "PIONEIRO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Wikipedia, Family Business Magazine, KCUR/NPR, Forbes Brasil. ATENÇÃO: o brainstorm original dizia "a inventora" — a fundação é de dois homens. Corrigido.</div>
+      </article>
+      <article class="post reveal" id="p8" data-lens="Pioneirismo" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">08</span>
+          <div class="post-tags">
+            <span class="tag">Pioneirismo</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Bob's — O primeiro fast food do Brasil nasceu de um milk-shake que não existia.</h3>
+        <p class="post-tese">Versão nacional e mais palpável do caso de ontem.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">O primeiro fast food do Brasil foi aberto por um campeão de Wimbledon que não conseguiu achar um milk-shake decente no Rio.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Robert Falkenburg venceu o simples de Wimbledon em 1948 e se mudou para o Brasil depois de casar com uma carioca.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Procurou um milk-shake na cidade e não achou. Quando um amigo de Los Angeles ofereceu uma franquia de sorveteria nos Estados Unidos, ele pediu para trazer para cá.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Comprou por US$ 10 mil os direitos, a fórmula, duas máquinas e um pasteurizador. Em 1951 abriu a Falkenburg Sorveteria no Rio.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Depois entraram sundae, cachorro-quente e hambúrguer. O nome virou Bob's. O ponto ficava perto da saída de vários cinemas.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Foi a primeira rede de fast food do país. Falkenburg vendeu o negócio em 1972.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Hoje a marca segue relevante, mas a liderança do mercado brasileiro de hambúrguer foi construída por redes que chegaram décadas depois.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Falkenburg não inventou nada. Ele viu uma ausência — algo que existia lá fora e não existia aqui — e escolheu o ponto certo. Olhe o que falta no seu bairro antes de olhar o que está na moda no centro.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="8">Copiar</button></span>
+        <div class="concept" id="cap8">A primeira rede de fast food do Brasil nasceu porque um tenista americano não achou um milk-shake decente no Rio de Janeiro.
+
+Robert Falkenburg, campeão do simples de Wimbledon em 1948, se mudou para cá depois de casar com uma carioca. Comprou por US$ 10 mil os direitos, a fórmula, duas máquinas e um pasteurizador de uma sorveteria americana, abriu em 1951 e foi acrescentando sundae, cachorro-quente e hambúrguer até o negócio virar o Bob's — em um ponto perto da saída de vários cinemas.
+
+O diferencial não foi invenção, foi leitura de ausência e escolha de ponto. Ele vendeu a rede em 1972, e a liderança do mercado acabou construída por quem chegou depois.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Wikipedia PT/EN (Robert Falkenburg, Bob's), Terra Economia. Wimbledon simples 1948; sorveteria em 1951, marca Bob's em 1952; venda à BFFC em 1972.</div>
+      </article>
+      <article class="post reveal" id="p9" data-lens="Contracorrente" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">09</span>
+          <div class="post-tags">
+            <span class="tag">Contracorrente</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · DOMINGO</span>
+          </div>
+        </div>
+        <h3>Chick-fil-A — Fecha aos domingos e fatura mais por loja que todo mundo.</h3>
+        <p class="post-tese">Fechar um dia não é perder receita. É concentrar demanda.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Ela fecha um dia inteiro por semana, todas as semanas, e ainda assim fatura mais por loja do que qualquer rede de fast food dos Estados Unidos.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">O Chick-fil-A não abre aos domingos desde a fundação. Nunca abriu. Não é campanha, é regra da casa.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Em 2025, a rede fechou o ano com cerca de 2.863 lojas nos Estados Unidos e US$ 23,9 bilhões em vendas no sistema.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">O faturamento médio anual por restaurante franqueado ficou em torno de US$ 9,1 milhões — mais que o dobro do McDonald's.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Com um dia a menos de operação e menos lojas que os dois principais concorrentes do segmento de frango.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Seis dias de operação com fluxo alto batem sete dias de operação com fluxo diluído: menos hora ociosa, menos escala quebrada, menos custo fixo por venda.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">E existe um efeito colateral que ninguém contabiliza: a casa fechada no domingo é lembrada na segunda.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Some quanto entra no seu dia mais fraco e quanto ele custa em energia, salário e desgaste. Se a conta for negativa, fechar não é recuar — é a decisão de maior impacto imediato que existe, e ela é de graça.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · DOMINGO</span>
+              <span class="slide-t">Comenta "DOMINGO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="9">Copiar</button></span>
+        <div class="concept" id="cap9">O Chick-fil-A nunca abriu aos domingos. Não é campanha nem exceção sazonal: é regra da casa desde a fundação.
+
+Mesmo assim, fechou 2025 com cerca de 2.863 lojas nos Estados Unidos, US$ 23,9 bilhões em vendas no sistema e faturamento médio anual por restaurante franqueado em torno de US$ 9,1 milhões — mais que o dobro do McDonald's, com uma loja a menos por dia de calendário e menos unidades que os concorrentes diretos do segmento.
+
+O diferencial está na concentração. Seis dias com fluxo alto batem sete dias com fluxo diluído: menos hora ociosa, menos escala quebrada, menos custo fixo por venda.
+
+Comenta "DOMINGO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>QSR Magazine (abr/2026, sobre o FDD 2025) e Restaurant Dive/Circana. AUV varia conforme metodologia: FDD indica ~US$ 9,16 mi; Circana, US$ 7,2 mi. Usada a do FDD, com "em torno de".</div>
+      </article>
+      <article class="post reveal" id="p10" data-lens="Operação" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">10</span>
+          <div class="post-tags">
+            <span class="tag">Operação</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>The Best Açaí — O produto tinha zero barreira de entrada. A operação não.</h3>
+        <p class="post-tese">Qualquer um pode vender açaí. Quase ninguém consegue vender igual em 680 lojas.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Três estudantes de engenharia civil abriram uma loja de açaí com R$ 15 mil. Sete anos depois, a rede faturava R$ 777 milhões.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Novembro de 2017, Londrina. Sérgio Kendy, Mateus Bragatto e Mateus Queiroz colocam R$ 5 mil cada e abrem perto da própria universidade.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">O produto é o mais copiável que existe. Açaí no self-service não tem patente, não tem receita secreta e não tem barreira nenhuma.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Então o negócio não foi construído no produto. Foi construído em fábrica própria, padrão de loja replicável e um modelo de franquia agressivo.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Em 2022 a rede faturou R$ 215 milhões. Em 2023, R$ 400 milhões. Em 2024, R$ 777 milhões, com faturamento médio por loja em torno de R$ 107 mil.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Foi a franquia que mais cresceu em número de unidades no país segundo a ABF, com 78% de crescimento.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Nada disso veio do açaí. Veio de ter transformado uma loja que funcionava em um sistema que outra pessoa consegue operar.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Se a sua operação só funciona quando você está lá, você não tem um negócio replicável — tem um emprego. O primeiro passo não é abrir a segunda loja. É escrever como a primeira funciona.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="10">Copiar</button></span>
+        <div class="concept" id="cap10">A The Best Açaí começou em novembro de 2017, em Londrina, com R$ 15 mil divididos entre três estudantes de engenharia civil. Fechou 2024 com R$ 777 milhões de faturamento.
+
+O produto é o mais copiável do mercado: açaí self-service não tem patente, receita secreta nem barreira de entrada. Por isso o diferencial nunca esteve nele. Está na fábrica própria, no padrão de loja replicável e no modelo de franquia — a rede saiu de R$ 215 milhões em 2022 para R$ 400 milhões em 2023 e R$ 777 milhões em 2024, com faturamento médio por loja em torno de R$ 107 mil e o maior crescimento em unidades do país segundo a ABF.
+
+O que escalou não foi a receita. Foi a operação escrita.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Exame, Bom Gourmet, AgroRevenda/ABF, Jornal de Brasília. Números de 2024 (R$ 777 mi). Faturamento 2025 não confirmado — não citar.</div>
+      </article>
+      <article class="post reveal" id="p11" data-lens="Mercado" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">11</span>
+          <div class="post-tags">
+            <span class="tag">Mercado</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · TAXA</span>
+          </div>
+        </div>
+        <h3>Keeta — Quando comprar o mercado sai mais barato que conquistar.</h3>
+        <p class="post-tese">A briga entre plataformas está sendo paga em multa de contrato.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Tem uma empresa pagando a multa que o seu concorrente deve para o iFood. Em dinheiro. Só para poder te vender.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">A Keeta é a operação internacional da chinesa Meituan e entrou no Brasil em 2025 com um plano bilionário de expansão.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Encontrou um mercado com cerca de 80% dos pedidos concentrados em uma única plataforma — e uma boa parte das redes presa em contratos de exclusividade.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">A resposta foi direta: pagar as multas de rescisão desses contratos para liberar os restaurantes.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Mesmo assim, o cronograma atrasou. A estreia no Rio foi adiada porque o custo de exclusividade lá era ainda maior que em São Paulo.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">O tema virou caso de concorrência: o Cade decidiu ampliar a análise sobre exclusividade no delivery brasileiro.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Enquanto isso, a 99Food voltou com taxa zero e o mercado ficou, pela primeira vez em anos, realmente disputado.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Esta é a melhor janela de negociação do delivery em muito tempo — e ela fecha. Antes de assinar exclusividade em troca de taxa menor, calcule quanto vale a liberdade de estar em três apps daqui a dois anos.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · TAXA</span>
+              <span class="slide-t">Comenta "TAXA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="11">Copiar</button></span>
+        <div class="concept" id="cap11">A Keeta, operação internacional da chinesa Meituan, entrou no Brasil em 2025 e encontrou um mercado com cerca de 80% dos pedidos concentrados numa plataforma só — e boa parte das redes presa a contratos de exclusividade.
+
+O diferencial da estratégia não foi propaganda: foi pagar, em dinheiro, as multas de rescisão desses contratos para liberar restaurantes. Ainda assim o cronograma de expansão atrasou, e a estreia no Rio foi adiada porque o custo de exclusividade na cidade era maior que em São Paulo. O Cade decidiu ampliar a análise sobre exclusividade no setor.
+
+Com a 99Food de volta com taxa zero, o delivery brasileiro está disputado pela primeira vez em anos. Janelas assim fecham.
+
+Comenta "TAXA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Folhapress/O Tempo (jun/2026), Exame (2025), PYMNTS/Reuters sobre o Cade (set/2026). CONTEÚDO PERECÍVEL — reconferir na véspera da publicação.</div>
+      </article>
+      <article class="post reveal" id="p12" data-lens="Fundador" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">12</span>
+          <div class="post-tags">
+            <span class="tag">Fundador</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Hershey — Vendeu a empresa lucrativa porque achou que era moda passageira.</h3>
+        <p class="post-tese">A cidade não foi generosidade. Foi consequência de uma decisão de insumo.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Ele vendeu uma empresa com 1.300 funcionários porque achou que o produto dela era modismo. Tinha razão.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Milton Hershey fundou a Lancaster Caramel Company em 1886 e fez dela um sucesso. Em 1893, na Exposição de Chicago, viu maquinário de chocolate e mudou de ideia sobre o futuro.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Na primavera de 1900 vendeu a fábrica de caramelo inteira por US$ 1 milhão à vista. Ficou só com os equipamentos de chocolate.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Chocolate ao leite era artigo de luxo suíço, e ele queria vender para todo mundo. Só que chocolate ao leite depende de leite fresco.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Então ele comprou terra a cerca de 50 km de Lancaster, no meio de fazendas leiteiras. Em 2 de março de 1903 começou a obra da fábrica, concluída em 1905.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Fábrica no meio de fazenda não tem quem trabalhe. Ele construiu casas, escolas, igrejas, lojas e transporte em volta. A cidade virou Hershey, Pensilvânia.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Em 1909 ele e a mulher fundaram uma escola para meninos órfãos. Anos depois, deixou a fortuna inteira para o fundo dessa escola.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Duas decisões difíceis no mesmo caso: matar um negócio que dava lucro e deixar o insumo escolher onde a empresa fica. A segunda só foi possível porque a primeira liberou caixa. Vender bem o que já não é futuro é tão estratégico quanto abrir o que é.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="12">Copiar</button></span>
+        <div class="concept" id="cap12">Milton Hershey vendeu uma empresa com 1.300 funcionários porque achou que o produto dela era modismo. O produto era caramelo, e ele tinha razão.
+
+Em 1900 vendeu a Lancaster Caramel Company por US$ 1 milhão à vista e ficou só com os equipamentos de chocolate. Chocolate ao leite era luxo suíço e depende de leite fresco — então ele comprou terra a cerca de 50 km dali, no meio de fazendas leiteiras, e começou a fábrica em março de 1903.
+
+Fábrica no meio de fazenda não tem quem trabalhe. O diferencial está na consequência: ele construiu casas, escolas, igrejas, lojas e transporte em volta, e a cidade virou Hershey. Vender bem o que já não é futuro é tão estratégico quanto abrir o que é.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>The Hershey Company, hersheypa.com, LancasterHistory, Wikipedia. CORREÇÃO: a cidade foi construída em 1903-1905, não em período de guerra — o rascunho original errava nisso. A ligação com a guerra é outra: a barra que não derretia, feita para as tropas na Segunda Guerra.</div>
+      </article>
+      <article class="post reveal" id="p13" data-lens="Promessa" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">13</span>
+          <div class="post-tags">
+            <span class="tag">Promessa</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · PROMESSA</span>
+          </div>
+        </div>
+        <h3>Domino's — Eles mediram antes de prometer. O problema foi o bônus.</h3>
+        <p class="post-tese">A promessa estava certa. O incentivo amarrado a ela é que quebrou.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">A promessa mais famosa da história da pizza custou US$ 79 milhões em uma única sentença.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">1979. A Domino's precisava se diferenciar da Pizza Hut, que na época nem entregava. Nasceu o "30 minutos ou é grátis".</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">E aqui está a parte que quase ninguém conta: eles escolheram 30 minutos porque a maioria das entregas já saía em menos de 30 minutos. Prometeram o que já faziam.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Funcionou. A rede passou de pequena a 5.000 lojas até o fim dos anos 80.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Mas remuneração e bônus das lojas foram amarrados ao cumprimento do prazo. A pressão desceu até a ponta mais frágil: entregadores, muitos adolescentes, dirigindo.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Em 1989, um motorista avançou o sinal vermelho e atingiu o carro de Jean Kinder, em St. Louis. Ela ficou com lesões na cabeça e na coluna.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Em dezembro de 1993 o júri condenou a empresa a cerca de US$ 79 milhões. Quatro dias depois, Tom Monaghan encerrou a garantia: "foi certamente o que passou do limite".</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Prometer o que você já entrega é ótima estratégia — eles mediram antes de falar. O erro foi transformar o prazo em bônus. Quando você amarra dinheiro a um número, alguém vai forçar esse número no pior momento possível. Meça o prazo, prometa o prazo, e não pague por ele.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · PROMESSA</span>
+              <span class="slide-t">Comenta "PROMESSA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="13">Copiar</button></span>
+        <div class="concept" id="cap13">"30 minutos ou é grátis" custou à Domino's cerca de US$ 79 milhões em uma única sentença, em dezembro de 1993.
+
+A promessa em si estava certa. A empresa escolheu 30 minutos porque a maioria das entregas já saía em menos de 30 minutos — eles mediram antes de falar. O erro veio depois: remuneração e bônus das lojas foram amarrados ao cumprimento do prazo, e a pressão desceu até a ponta mais frágil, entregadores adolescentes dirigindo.
+
+Em 1989 um motorista avançou o sinal e feriu gravemente Jean Kinder, em St. Louis. Quatro dias após o veredicto, Tom Monaghan encerrou a garantia. Meça o prazo, prometa o prazo, e não pague bônus por ele.
+
+Comenta "PROMESSA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Deseret News (dez/1993), Mel Magazine, Tasting Table, Snopes, GTLA. Veredicto: US$ 750 mil de dano efetivo + US$ 78 mi punitivos; Kinder acordou em valor menor. Garantia encerrada nos EUA em 1993; segue em alguns países.</div>
+      </article>
+      <article class="post reveal" id="p14" data-lens="Preço" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">14</span>
+          <div class="post-tags">
+            <span class="tag">Preço</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Habib's — Preço popular é decisão de processo, não de coragem.</h3>
+        <p class="post-tese">Ele não barateou a esfiha. Ele montou a cadeia inteira que permite ela ser barata.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Ele entrou na faculdade de medicina e nunca exerceu. Em vez disso, montou a maior rede de comida árabe do mundo.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Agosto de 1973. O pai de Alberto Saraiva é assassinado num assalto à padaria que a família tinha comprado 19 dias antes.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Aos 20 anos ele assume o negócio. Equipamento velho, cinco padarias concorrentes na mesma rua, nenhuma vantagem.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">A estratégia foi vender o pão 30% abaixo da tabela. O pão não dava lucro. Mas quem entrava para comprar pão levava leite, suco, sanduíche.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Anos depois, já formado, ele contrata um cozinheiro aposentado de setenta e poucos anos, especialista em comida árabe, que morava no prédio da frente. Foi quem ensinou a esfiha.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Em 1988 abre o primeiro Habib's, na Lapa, em São Paulo. A esfiha de carne custava 140 cruzados.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Para o preço se sustentar, o grupo se verticalizou: panificação, laticínio, sorvete, central de atendimento — tudo dentro de casa.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Baixar preço sem mexer na estrutura de custo não é estratégia, é sangramento. Preço baixo sustentável nasce de controle de insumo, padronização e volume. Nessa ordem.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="14">Copiar</button></span>
+        <div class="concept" id="cap14">Alberto Saraiva estudava medicina quando o pai foi assassinado num assalto à padaria que a família tinha comprado 19 dias antes. Aos 20 anos assumiu o negócio: equipamento velho, cinco concorrentes na mesma rua.
+
+A primeira decisão foi vender o pão 30% abaixo da tabela. O pão não dava lucro — mas quem entrava levava leite, suco, sanduíche. Anos depois, contratou um cozinheiro aposentado que morava no prédio da frente e aprendeu com ele a receita da esfiha. O primeiro Habib's abriu na Lapa em 1988.
+
+O diferencial não foi a coragem de cobrar pouco. Foi a verticalização que veio depois — panificação, laticínio, sorvete, central de atendimento dentro de casa. Preço baixo é decisão de processo.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Wikipedia PT, Terra Economia, site institucional Habib's, Museu da Pessoa. ATENÇÃO: o brainstorm dizia "saiu da farmácia" — era medicina, na Santa Casa de SP. Corrigido.</div>
+      </article>
+      <article class="post reveal" id="p15" data-lens="Contrapeso" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">15</span>
+          <div class="post-tags">
+            <span class="tag">Contrapeso</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · RITMO</span>
+          </div>
+        </div>
+        <h3>Madero — O preço de crescer rápido demais.</h3>
+        <p class="post-tese">O próprio fundador admitiu: 50 lojas por ano era muito.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Uma das redes mais admiradas do país acumulou R$ 333 milhões de prejuízo em três anos. O motivo não foi o produto.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">O Madero cresceu apostando em verticalização e em abertura acelerada de lojas.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Veio a pandemia, veio o juro alto, e o endividamento chegou a 3,55 vezes o Ebitda.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">O próprio Junior Durski admitiu depois que faltou critério: cinquenta lojas por ano era muito.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">A correção foi parar de abrir. Entre 2023 e 2024 a rede praticamente congelou a expansão para gerar caixa e reduzir dívida.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Funcionou. Em 2025 o grupo registrou lucro líquido de R$ 103,2 milhões, receita bruta recorde de R$ 2,3 bilhões e endividamento em torno de 1,19 vez o Ebitda.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Cinco anos entre o erro de ritmo e a volta ao lucro — com a marca intacta o tempo inteiro.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Crescer é uma decisão de caixa, não de vontade. A segunda loja só faz sentido quando a primeira gera caixa suficiente para sustentar a segunda ficando ruim nos primeiros seis meses. Se não gera, não é expansão. É aposta.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · RITMO</span>
+              <span class="slide-t">Comenta "RITMO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="15">Copiar</button></span>
+        <div class="concept" id="cap15">O Madero acumulou R$ 333 milhões de prejuízo entre 2021 e 2023. O produto nunca foi o problema — o ritmo foi.
+
+A rede cresceu apostando em verticalização e abertura acelerada de lojas até o endividamento chegar a 3,55 vezes o Ebitda. O próprio Junior Durski admitiu depois que faltou critério, e que cinquenta lojas por ano era demais. A correção foi parar: expansão praticamente congelada para gerar caixa e abater dívida.
+
+Deu certo. Em 2025 o grupo fechou com lucro líquido de R$ 103,2 milhões, receita bruta recorde de R$ 2,3 bilhões e alavancagem em torno de 1,19 vez. Cinco anos entre o erro de ritmo e a volta ao lucro.
+
+Comenta "RITMO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>InfoMoney, Exame Insight, Brazil Economy, NeoFeed (jan/2026). Prejuízo acumulado 2021–2023: R$ 333,1 mi. Resultados de 2025 conforme NeoFeed.</div>
+      </article>
+      <article class="post reveal" id="p16" data-lens="Sociedade" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">16</span>
+          <div class="post-tags">
+            <span class="tag">Sociedade</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Coco Bambu — A porção gigante é o que você vê. Não é o que faz funcionar.</h3>
+        <p class="post-tese">O fundador diz que o diferencial é gestão. São mais de 200 sócios.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">A maior rede de restaurantes do Brasil começou como uma pastelaria com dez mesas.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">1989, praia da Aldeota, Fortaleza. Afrânio e Daniela Barreira abrem a Dom Pastel com uma fritadeira, uma masseira, uma máquina de chope e dez mesas, na casa reformada do avô dele.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Afrânio é engenheiro civil. Daniela fazia sobremesas em casa para vender a restaurantes. O primeiro Coco Bambu só veio em 2001, no Meireles.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">De 2019 para 2025, o faturamento foi de R$ 1 bilhão para cerca de R$ 2,5 bilhões, com 94 lojas e mais de 10 mil funcionários.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Todo mundo aponta a porção gigante como o segredo. O fundador aponta outra coisa: gestão.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">A rede opera com mais de 200 sócios. Cada casa tem gente com dinheiro e nome dentro dela. Afrânio chama isso de dividir para multiplicar.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">A porção é o que faz a foto circular. A sociedade é o que faz a 94ª loja ter o mesmo padrão da primeira.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Todo negócio tem um diferencial visível e um diferencial real. O visível atrai; o real sustenta. Se você só copiar a porção grande de alguém, você copiou o custo sem copiar a estrutura que paga por ele.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="16">Copiar</button></span>
+        <div class="concept" id="cap16">A maior rede de restaurantes do Brasil começou como uma pastelaria com dez mesas, uma fritadeira e uma máquina de chope, em Fortaleza, em 1989.
+
+Todo mundo aponta a porção gigante como o segredo do Coco Bambu. O fundador aponta outra coisa: gestão. A rede opera com mais de 200 sócios, gente com dinheiro e nome dentro de cada casa — Afrânio Barreira chama isso de dividir para multiplicar. De 2019 para 2025 o faturamento foi de R$ 1 bilhão para cerca de R$ 2,5 bilhões, com 94 lojas.
+
+A porção é o que faz a foto circular. A sociedade é o que faz a 94ª loja ter o padrão da primeira. Copiar só o diferencial visível é copiar o custo sem a estrutura que paga por ele.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Exame (nov/2024), Revista Encontro (set/2025), site oficial Coco Bambu, Diário do Comércio, Mundo das Marcas. Curiosidade: em 2025 a rede ganhou na Justiça o direito de usar "o melhor restaurante do Brasil", slogan contestado pelo Outback.</div>
+      </article>
+      <article class="post reveal" id="p17" data-lens="Operação" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">17</span>
+          <div class="post-tags">
+            <span class="tag">Operação</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · BURACO</span>
+          </div>
+        </div>
+        <h3>Krispy Kreme — O negócio mudou quando ele cortou um buraco na parede.</h3>
+        <p class="post-tese">A fila do lado de fora estava dizendo em que ramo ele estava.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">O cheiro da fábrica trouxe gente para a calçada. Ele respondeu cortando um buraco na parede.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">13 de julho de 1937, Winston-Salem, Carolina do Norte. Vernon Rudolph chega com cerca de vinte dólares no bolso, dois amigos e uma receita de massa fermentada comprada de um chef francês em Nova Orleans.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Escolheu a cidade olhando o maço de cigarro no bolso: se ali já cabia uma indústria grande, cabia outra. Alugou o prédio, alugou o equipamento e comprou os ingredientes fiado com um dono de mercearia.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">O negócio era atacado. Ele produzia e entregava para mercearias da região. Nenhum plano de vender direto.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Só que o cheiro da produção saía para a rua e os passantes começaram a bater na porta perguntando se dava para comprar quente.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Rudolph abriu um buraco na parede externa e passou a vender na calçada, direto da linha de produção.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Esse buraco virou o negócio. Anos depois, a marca inteira foi construída em cima de ver a rosquinha sendo feita: vitrine de produção, telhado verde, esteira à vista.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Seu cliente está te dizendo qual é o próximo canal e você provavelmente está tratando como interrupção. Quem bate na porta fora do horário, quem pergunta se você entrega, quem pede para comprar congelado — isso é pesquisa. A resposta costuma custar o preço de um buraco na parede.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · BURACO</span>
+              <span class="slide-t">Comenta "BURACO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="17">Copiar</button></span>
+        <div class="concept" id="cap17">A Krispy Kreme começou como atacado. Vernon Rudolph produzia e entregava para mercearias de Winston-Salem, em 1937, sem nenhum plano de vender direto ao consumidor.
+
+O cheiro da produção saía para a rua e os passantes começaram a bater na porta perguntando se dava para comprar quente. O diferencial está na resposta: ele cortou um buraco na parede externa e passou a vender na calçada, direto da linha de produção. Esse buraco virou o negócio — a marca inteira foi construída depois em cima de ver a rosquinha sendo feita.
+
+Quem bate na porta fora do horário está fazendo pesquisa de mercado. A resposta costuma custar o preço de um buraco na parede.
+
+Comenta "BURACO" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Site oficial Krispy Kreme (history), NC DNCR, UNC NC Miscellany, FOX/WUSA, northcarolinahistory.org. Fundação 13/07/1937; receita comprada do chef Joe LeBeau, em Nova Orleans.</div>
+      </article>
+      <article class="post reveal" id="p18" data-lens="Fundador" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">18</span>
+          <div class="post-tags">
+            <span class="tag">Fundador</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Coronel Sanders — Começou tarde, e o rosto dele virou o ativo mais caro da marca.</h3>
+        <p class="post-tese">A lenda das recusas é boa demais para ser verificável — e isso também é parte do caso.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">O número mais repetido sobre o fundador do KFC é o número que ninguém consegue provar. E ele continua sendo repetido há setenta anos.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Harland Sanders nasceu em 1890. Foi condutor de bonde, bombeiro, vendedor de seguro e dono de posto de gasolina antes de vender frango.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">O título de "Coronel" é honorário, dado pelo governo do estado de Kentucky. Nunca foi patente militar.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">A primeira franquia sai em 1952, para Pete Harman, em Salt Lake City — quando ele já tinha mais de sessenta anos.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Pouco depois, uma nova rodovia desvia o tráfego do restaurante dele. O negócio original é leiloado em 1956.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Em 1964 ele vende o KFC por US$ 2 milhões e permanece como garoto-propaganda. O rosto dele fica no logo até hoje.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">A história das mais de mil recusas circula em toda parte, quase sempre com "dizem que". O que é verificável é melhor: ele começou tarde, quebrou depois de começar, e mesmo assim o ativo que sobrou foi a própria cara.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Se você é a pessoa que o cliente reconhece, você é um ativo do negócio — e ativo precisa aparecer. Não terceirize seu próprio rosto para uma logomarca que ninguém conhece ainda.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="18">Copiar</button></span>
+        <div class="concept" id="cap18">O dado mais repetido sobre o fundador do KFC — mais de mil recusas antes do primeiro sim — aparece em toda parte acompanhado de "dizem que". Vale mais o que é verificável.
+
+Harland Sanders foi condutor de bonde, bombeiro, vendedor de seguro e dono de posto antes de vender frango. O título de Coronel é honorário, concedido pelo estado de Kentucky. A primeira franquia saiu em 1952, quando ele já passava dos sessenta; anos depois uma rodovia desviou o tráfego do restaurante original, leiloado em 1956. Em 1964 vendeu a empresa por US$ 2 milhões e ficou como garoto-propaganda.
+
+O diferencial que sobreviveu a tudo foi o rosto dele. Continua no logo.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Wikipedia, Atlas Obscura, atouchofbusiness. O número 1.009 é folclore repetido sem fonte primária — a peça trata isso como parte do argumento, de propósito. Não corrigir para afirmação.</div>
+      </article>
+      <article class="post reveal" id="p19" data-lens="Origem" data-cta="grupo">
+        <div class="post-head">
+          <span class="post-n">19</span>
+          <div class="post-tags">
+            <span class="tag">Origem</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Grupo · HORA</span>
+          </div>
+        </div>
+        <h3>Sorvete no Brasil — Em 1878 vendiam a hora, não o sorvete.</h3>
+        <p class="post-tese">Quando o produto não espera, o anúncio deixa de ser sobre o produto.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">Em 1878, uma sorveteria de São Paulo anunciava no jornal a hora exata da fabricação. Não o sabor. A hora.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Agosto de 1834. O navio americano Madagascar aporta no Rio vindo de Boston com cerca de 217 toneladas de gelo em blocos.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Dois comerciantes cariocas compram a carga e, em 23 de agosto, começam a vender gelados de frutas. É o primeiro sorvete comercializado no Brasil.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">O gelo era enterrado em covas, envolto em serragem, e durava de quatro a cinco meses. Mas o sorvete pronto não durava nada.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">Por isso o anúncio: "Sorvetes — todos os dias às 15 horas, na Rua Direita, nº 44". A casa não vendia produto, vendia um horário.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Isso concentrava a demanda inteira numa janela só. Sem conservação, a urgência não era truque de marketing — era a operação falando.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">A indústria só resolveu isso em julho de 1941, com a primeira fábrica de sorvete do país, a U.S. Harkson do Brasil, que viraria a Kibon.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Produto que não espera deve ser anunciado por horário, não por descrição. Se você tem item que sai do forno às 16h, avise o horário e não o sabor. Isso transforma perecibilidade, que é seu maior custo, no motivo de o cliente aparecer na hora certa.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Grupo · HORA</span>
+              <span class="slide-t">Comenta "HORA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="19">Copiar</button></span>
+        <div class="concept" id="cap19">Em 1878, uma sorveteria de São Paulo anunciava no jornal a hora exata da fabricação: sorvetes, todos os dias às 15 horas, na Rua Direita, 44. Não o sabor. A hora.
+
+O sorvete tinha chegado ao Brasil em agosto de 1834, quando o navio Madagascar aportou no Rio com cerca de 217 toneladas de gelo de Boston. O gelo durava meses enterrado em serragem; o sorvete pronto não durava nada. O diferencial daquele anúncio está aí: sem conservação, a urgência não era truque, era a operação falando — e concentrava a demanda inteira numa janela só.
+
+Se você tem item que sai do forno às 16h, anuncie o horário, não o sabor. Perecibilidade vira motivo para o cliente aparecer na hora certa.
+
+Comenta "HORA" que eu te mando o link do grupo dos Empreendedores do Grajaú.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>ABIS via MR Mix, SINDISORVETE RN, Snowfruit (anúncio de 1878), Portal São Francisco, iFood Institucional. Navio Madagascar, agosto de 1834; primeira venda em 23/08/1834; Kibon (U.S. Harkson) em julho de 1941.</div>
+      </article>
+      <article class="post reveal" id="p20" data-lens="Insumo" data-cta="seguir">
+        <div class="post-head">
+          <span class="post-n">20</span>
+          <div class="post-tags">
+            <span class="tag">Insumo</span>
+            <span class="tag tag-solid">Fonte conferida</span>
+            <span class="tag tag-solid">Seguir</span>
+          </div>
+        </div>
+        <h3>Nutella — Três restrições seguidas, três versões melhores.</h3>
+        <p class="post-tese">Cada vez que algo deu errado, o produto melhorou. Nenhuma das três mudanças foi escolha.</p>
+
+        <span class="label">Lâminas · role para o lado</span>
+        <div class="slides">
+            <div class="slide slide-cover">
+              <span class="slide-n">01</span>
+              <span class="slide-t">O produto mudou de receita, de formato e de nome. Nenhuma das três mudanças foi ideia da empresa.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">02</span>
+              <span class="slide-t">Restrição 1: o cacau. No pós-guerra estava escasso e pesadamente taxado na Itália. Pietro Ferrero, dono de uma confeitaria em Alba, tinha avelã de sobra no Piemonte.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">03</span>
+              <span class="slide-t">Em 1946 ele vende o Giandujot: um bloco sólido de avelã com pouco cacau, embrulhado em papel-alumínio, para fatiar sobre o pão. Custava de quatro a cinco vezes menos que chocolate.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">04</span>
+              <span class="slide-t">Restrição 2: o calor. O verão de Alba derretia os blocos na prateleira das mercearias. O alumínio vazava, os comerciantes reclamavam. O verão de 1949 tornou o problema insustentável.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">05</span>
+              <span class="slide-t">A família refez a fórmula em cima da falha: mais gordura vegetal, textura mole, e em 1951 relançou em pote de vidro com o nome Supercrema.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">06</span>
+              <span class="slide-t">Restrição 3: a lei. Em 1962 a Itália proibiu superlativos em nome de produto. Super, ultra e afins estavam fora.</span>
+            </div>
+            <div class="slide">
+              <span class="slide-n">07</span>
+              <span class="slide-t">Foram obrigados a rebatizar. Registraram "Nutella" em outubro de 1963 e os primeiros potes saíram em 20 de abril de 1964, em Alba.</span>
+            </div>
+            <div class="slide slide-licao">
+              <span class="slide-n">08 · Lição</span>
+              <span class="slide-t">Quando um insumo dispara, o cliente reclama ou a regra muda, existem três saídas: repassar, cortar porção ou reformular. As duas primeiras o cliente sente na hora. A terceira dá trabalho e às vezes vira o produto que sustenta a casa nos vinte anos seguintes.</span>
+            </div>
+            <div class="slide slide-cta">
+              <span class="slide-n">CTA · Seguir</span>
+              <span class="slide-t">Segue o @empreendedoresgrajau. Toda semana tem um caso desses, escrito para quem vive de vender comida.</span>
+            </div>
+        </div>
+
+        <span class="label label-row">Legenda <button class="copy" data-n="20">Copiar</button></span>
+        <div class="concept" id="cap20">A Nutella mudou de receita, de formato e de nome. Nenhuma das três mudanças foi ideia da empresa.
+
+Primeiro o cacau: escasso e taxado no pós-guerra, foi substituído em grande parte por avelã, abundante no Piemonte — nasceu o Giandujot de 1946, um bloco sólido para fatiar sobre o pão. Depois o calor: os verões de Alba derretiam os blocos na prateleira, e a família refez a fórmula em cima da falha, relançando em pote de vidro como Supercrema em 1951. Por fim a lei: em 1962 a Itália proibiu superlativos em nome de produto, e o registro de "Nutella" veio em outubro de 1963.
+
+Três restrições, três versões melhores. Reformular dá mais trabalho que repassar o custo — e às vezes vira o produto que sustenta a casa por vinte anos.
+
+Segue o @empreendedoresgrajau para mais casos como esse, toda semana.</div>
+
+        <div class="source"><span class="label">Fonte / checagem</span>Nutella.com (heritage), Wikipedia, italyheritage.com, La Gazzetta Italiana, Grokipedia. Giandujot 1946 (primeiro lote de 300 kg); Supercrema 1951; "Nutella" registrada em out/1963, produção em 20/04/1964.</div>
+      </article>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <span class="label reveal">04 — Antes de publicar</span>
+  <h2 class="reveal">Pendências</h2>
+  <div class="cards cards-2">
+    <div class="card reveal"><span class="label">Bloqueios diretos</span><ul>
+      <li>Definir o calendário com o Leo — a ordem está fechada, faltam as datas e a cadência</li>
+      <li>Acesso ao Instagram do Empreendedores do Grajaú — trava a primeira publicação</li>
+      <li>Identidade visual da Latte não aprovada — o design das lâminas não começa sem isso</li>
+      <li>Confirmar o @ do perfil (usei @empreendedoresgrajau como placeholder nas 10 peças de seguir)</li>
+      <li>A cadência define o lote de design: acima de três por semana, as artes precisam sair em bloco</li>
+    </ul></div>
+    <div class="card reveal"><span class="label">Operação do CTA</span><ul>
+      <li>Existe automação de DM por palavra-chave? Se não, as 10 palavras viram trabalho manual</li>
+      <li>Sem automação, padronizar tudo em uma palavra só: GRUPO</li>
+      <li>Definir quem responde comentário nas duas horas seguintes a cada post</li>
+      <li>O encontro cancelado merece um post próprio de remarcação — não está entre as 20</li>
+    </ul></div>
+    <div class="card reveal"><span class="label">O que a checagem mudou</span><ul>
+      <li>Sorvete: a peça agora gira em torno de um anúncio de 1878 que vendia horário, não sabor</li>
+      <li>Pastel: o mecanismo é distribuição pronta, não formato de banca</li>
+      <li>Outback: eles se recusaram a ir à Austrália de propósito — isso é a peça inteira</li>
+      <li>In-N-Out: a regra é "sem freezer"; o ritmo lento é consequência dela</li>
+      <li>Coco Bambu: o fundador atribui o resultado à sociedade de 200 pessoas, não à porção</li>
+      <li>Krispy Kreme: o buraco na parede é o caso; o resto é contexto</li>
+    </ul></div>
+    <div class="card reveal"><span class="label">Correções de fato</span><ul>
+      <li>Hershey: a cidade é de 1903-1905, não de período de guerra. O rascunho errava</li>
+      <li>White Castle: não houve inventora — Walter Anderson e Billy Ingram, 1921</li>
+      <li>Habib's: Alberto Saraiva era estudante de medicina, não de farmácia</li>
+      <li>Domino's: eles mediram antes de prometer; o problema foi o bônus atrelado ao prazo</li>
+      <li>Nutella: são três restrições encadeadas, não uma</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<footer><div class="container">
+  <b>Latte</b> · Consultoria em Marketing · Documento de trabalho, versão 4 · 27/10/2026 · sem datas, para leitura do grupo<br>
+  Referência estilística: @brandsdecoded__, coleta de 09/09/2026, 43 publicações<br>
+  Sistema visual: <b>João Luz Design · Brand System Guide 2026</b> — DM Sans, paleta de cinco valores, coluna editorial de 800px
+</div></footer>
+
+<script>
+const P = [{"n":1,"lens":"Fundador","cta":"grupo"},{"n":2,"lens":"Opinativo","cta":"seguir"},{"n":3,"lens":"Mercado","cta":"grupo"},{"n":4,"lens":"Origem","cta":"seguir"},{"n":5,"lens":"Operação","cta":"grupo"},{"n":6,"lens":"Operação","cta":"seguir"},{"n":7,"lens":"Pioneirismo","cta":"grupo"},{"n":8,"lens":"Pioneirismo","cta":"seguir"},{"n":9,"lens":"Contracorrente","cta":"grupo"},{"n":10,"lens":"Operação","cta":"seguir"},{"n":11,"lens":"Mercado","cta":"grupo"},{"n":12,"lens":"Fundador","cta":"seguir"},{"n":13,"lens":"Promessa","cta":"grupo"},{"n":14,"lens":"Preço","cta":"seguir"},{"n":15,"lens":"Contrapeso","cta":"grupo"},{"n":16,"lens":"Sociedade","cta":"seguir"},{"n":17,"lens":"Operação","cta":"grupo"},{"n":18,"lens":"Fundador","cta":"seguir"},{"n":19,"lens":"Origem","cta":"grupo"},{"n":20,"lens":"Insumo","cta":"seguir"}];
+
+/* filtros */
+const lenses = ['todas', ...new Set(P.map(p => p.lens))];
+document.getElementById('filters').innerHTML = lenses.map((l,i) =>
+  '<button class="fbtn' + (i===0?' on':'') + '" data-l="' + l + '">' + l + (l==='todas' ? ' ('+P.length+')' : '') + '</button>'
+).join('');
+
+document.querySelectorAll('.fbtn').forEach(b => {
+  b.onclick = () => {
+    document.querySelectorAll('.fbtn').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    const l = b.dataset.l;
+    document.querySelectorAll('.post').forEach(el => {
+      el.classList.toggle('hide', l !== 'todas' && el.dataset.lens !== l);
+    });
+  };
+});
+
+/* copiar legenda */
+document.querySelectorAll('.copy').forEach(b => {
+  b.onclick = () => {
+    const el = document.getElementById('cap' + b.dataset.n);
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const o = b.textContent; b.textContent = 'Copiado';
+      setTimeout(() => b.textContent = o, 1400);
+    });
+  };
+});
+
+/* motion — spec do brand system */
+const els = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const i = [...els].indexOf(e.target);
+    e.target.style.transitionDelay = ((i % 4) * 80) + 'ms';
+    e.target.classList.add('in');
+    io.unobserve(e.target);
+  });
+}, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+els.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
